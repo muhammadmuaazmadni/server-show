@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Task</title>
+    <style>
+        button {
+            background-color: brown;
+            height: 50px;
+            width: 10%;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="getfunc()">get</button>
+    <button onclick="getpost()">post</button>
+    <button onclick="getput()">put</button>
+    <button onclick="getdel()">delete</button>
+
+</body>
+
+</html>
+<script>
+    getfunc = () => {
+        const Http = new XMLHttpRequest();
+        const url = 'http://192.168.50.177:3000/bulb';
+        Http.open("GET", url);
+        Http.send();
+
+        Http.onreadystatechange = (e) => {
+            console.log(Http.responseText)
+            
+        }
+    }
+    function getpost() {
+        const Http = new XMLHttpRequest();
+        const url = 'http://192.168.50.177:3000/bulb';
+        Http.open("POST", url);
+        Http.send();
+
+        Http.onreadystatechange = (e) => {
+            console.log(Http.responseText)
+
+        }
+    }
+    function getput() {
+        const Http = new XMLHttpRequest();
+        const url = 'http://192.168.50.177:3000/bulb';
+        Http.open("PUT", url);
+        Http.send();
+
+        Http.onreadystatechange = (e) => {
+            console.log(Http.responseText)
+
+        }
+    }
+    function getdel() {
+        const Http = new XMLHttpRequest();
+        const url = 'http://192.168.50.177:3000/bulb';
+        Http.open("DEL", url);
+        Http.send();
+
+        Http.onreadystatechange = (e) => {
+            console.log(Http.responseText)
+
+        }
+    }
+</script>
